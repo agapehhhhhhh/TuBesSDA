@@ -49,4 +49,32 @@ float CalculationOfTree(Kalkulator P);
  * F.S. : Menu untuk kalkulator ditampilkan.
  */
 
+void MenuKalkulator();
+
+/* Menampilkan menu kalkulator.
+ * I.S. : Layar kosong.
+ * F.S. : menu kalkulator ditampilkan.
+ */
+ 
+void showIntruction();
+
+/* Menampilkan intruksi.
+ * I.S. : Layar kosong.
+ * F.S. : Intruksi ditampilkan.
+ */
+ 
+void showAbout();
+
+/* Menampilkan indentitas author.
+ * I.S. : Layar kosong.
+ * F.S. : Author ditampilkan.
+ */
+ 
+void MainMenu(int *input);
+ 
+ /* Menerima input dari user tentang menu.
+ * I.S. : Belum ada pilihan yang dipilih user.
+ * F.S. : User meng-input pilihan.
+ */
+ 
 #endif
