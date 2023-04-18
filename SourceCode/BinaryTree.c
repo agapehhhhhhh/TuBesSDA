@@ -101,8 +101,8 @@ int Priority(char x){
 
 
 /* Mengembalikan true jika operator1 memiliki prioritas yang lebih tinggi daripada operator2 */
-boolean isPriority(char a, char b){
-  return (Priority(a) >= Priority(b));
+boolean isPriority(char info1, char info2){
+  return (Priority(info1) >= Priority(info2));
 } 
 
 /* Return true jika karakter yang dicek atau diperiksa merupakan sebuah operator */

@@ -22,6 +22,7 @@
 
 #include "StackForChar.h" 
 #include "boolean.h"
+#include <stdlib.h>
 
 typedef char String[50];
 

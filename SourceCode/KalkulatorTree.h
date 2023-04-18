@@ -18,7 +18,6 @@
 
 #include "StackForTree.h"
 #include "BinaryTree.h"
-#include "BangunDatar.h"
 #include <math.h>
 
 typedef char String[50];
