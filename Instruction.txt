@@ -1,0 +1,11 @@
+                      Petunjuk Penggunaan
+
+1. Masukkan perhitungan tanpa menggunakan spasi
+2. Angka dan operator pada layar, merupakan operator yang sah digunakan
+3. Tanda '/' digunakan untuk operasi pembagian
+4. Tanda '*' digunakan untuk operasi perkalian
+5. Tanda '^' digunakan untuk operasi perpangkatan
+6. Tanda 'v' (gunakan huruf v) digunakan untuk operasi akar pangkat
+7. Operasi trigonometri yang berlaku menggunakan satuan Radian bukan Derajat
+8. Masukkan operand pada operator sin, cos, tan, phi, dan log tanda menggunakan tanda kurung '(...)'
+9. Tanda kurung '(...)' dapat berlaku juga sebagai pengganti perkalian apabila tidak ada operator sebelumnya

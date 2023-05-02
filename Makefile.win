@@ -1,0 +1,40 @@
+# Project: KalkulatorTree
+# Makefile created by Embarcadero Dev-C++ 6.3
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = BinaryTree.o KalkulatorTree.o StackForChar.o StackForTree.o MainKalkulator.o
+LINKOBJ  = BinaryTree.o KalkulatorTree.o StackForChar.o StackForTree.o MainKalkulator.o
+LIBS     = -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib" -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
+CXXINCS  = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
+BIN      = KalkulatorTree.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+DEL      = C:\Program Files (x86)\Embarcadero\Dev-Cpp\DevCpp.exe INTERNAL_DEL
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${DEL} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+BinaryTree.o: BinaryTree.c
+	$(CC) -c BinaryTree.c -o BinaryTree.o $(CFLAGS)
+
+KalkulatorTree.o: KalkulatorTree.c
+	$(CC) -c KalkulatorTree.c -o KalkulatorTree.o $(CFLAGS)
+
+StackForChar.o: StackForChar.c
+	$(CC) -c StackForChar.c -o StackForChar.o $(CFLAGS)
+
+StackForTree.o: StackForTree.c
+	$(CC) -c StackForTree.c -o StackForTree.o $(CFLAGS)
+
+MainKalkulator.o: MainKalkulator.c
+	$(CC) -c MainKalkulator.c -o MainKalkulator.o $(CFLAGS)
