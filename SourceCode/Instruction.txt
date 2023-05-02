@@ -7,5 +7,5 @@
 5. Tanda '^' digunakan untuk operasi perpangkatan
 6. Tanda 'v' (gunakan huruf v) digunakan untuk operasi akar pangkat
 7. Operasi trigonometri yang berlaku menggunakan satuan Radian bukan Derajat
-8. Gunakan tanda kurung '(...)' setelah memasukkan operator sin, cos, tan, phi, dan log
+8. Masukkan operand pada operator sin, cos, tan, phi, dan log tanda menggunakan tanda kurung '(...)'
 9. Tanda kurung '(...)' dapat berlaku juga sebagai pengganti perkalian apabila tidak ada operator sebelumnya
