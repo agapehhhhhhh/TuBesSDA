@@ -1,0 +1,10 @@
+Program Kalkulator ini merupakan hasil modifikasi dan pengembangan program Kelompok Arfila JTK 2020. 
+Pengembangan yang dilakukan yaitu dengan menambahkan fitur menjadi kalkulator scientific, 
+dimana dapat menangani perhitungan matematika seperti aljabar, trigonometri, dan fungsi.
+
+Program Kalkulator ini dimodifikasi oleh:
+Farhan Muhammad Yasin		221524008
+Muhammad Alvin Abdul Rozak	221524016
+Naffa Lenteranisa		221524023
+
+Untuk memenuhi syarat menyelesaikan tugas besar mata kuliah Struktur Data dan Algoritma

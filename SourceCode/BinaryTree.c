@@ -91,11 +91,14 @@ int Priority(char x){
     case '+': return 1;
     case '-': return 1;
     case '*': return 2;
-    case 'x': return 2;
     case '/': return 2;
-    case ':': return 2;
 	case '^': return 3;   
     case 'v': return 3;
+    case 's': return 4;
+    case 'c': return 4;
+    case 't': return 4;
+    case 'l': return 4;
+    case 'p': return 4;
   }
 }
 
@@ -107,6 +110,15 @@ boolean isPriority(char info1, char info2){
 
 /* Return true jika karakter yang dicek atau diperiksa merupakan sebuah operator */
 boolean isOperator(char c){
+//	int j;
+//	String operator = "+-*/^vsctlp";
+//    for (j = 0; j < 11; j++){
+//    	if (c == operator[j]){
+//    		return 1;
+//    	}
+//    	else{ 
+//			return 0;}
+//	}
   return(c=='+' || c=='-' || c=='*' || c=='x' || c=='/' || c ==':' || c =='^' || c=='v');
 }
 

@@ -9,6 +9,28 @@
 
 #include "KalkulatorTree.h"
 
+void MenuKalkulator(){
+	BinTree expTree;
+	String postfix, input;
+	
+	system("cls");
+	showInstruction();
+	system("\nPAUSE");
+	system("cls");
+//	displayKalkulator();
+	puts("\n\t\t\t Aplikasi Kalkulator \n");
+	printf("Lakukan perhitungan :\n\n"); 
+	scanf("%s", input);
+	InfixToPostfix(input, postfix);
+	printf("\n");
+	expTree = BuildExpressionTree(postfix);
+	printf("\n\n");
+	ShowInfoTree(expTree);
+	printf("\n\n");
+	printf("= %.2f\n", CalculationOfTree(expTree)); 
+	
+}
+
 /* Membuat sebuah ekspresi tree dari ekspresi postfix yang sudah didapatkan. 
  * I.S. : Postfix terdefinisi.
  * F.S. : Mengembalikan ekspresi tree.
@@ -107,11 +129,56 @@ BinTree BuildExpressionTree(infotypeTree postfix){
 	return ExpressionTree;
 }
 
+void editInfix(String infix){
+	int ukuran = strlen(infix);
+	
+	//tambahan untuk membenarkan bug
+    int counter1 = 0;
+    int counter2;
+    while(counter1<ukuran){
+    	if(infix[counter1] == '(' && counter1 != 0 && infix[counter1-1] != '+' && infix[counter1-1] != '-' && infix[counter1-1] != '*' && infix[counter1-1] != '/' && infix[counter1-1] != ':' && infix[counter1-1] != '^' && infix[counter1-1] != 'v' ){
+    		for(counter2=ukuran-1; counter2 >= counter1; counter2--){
+    			infix[counter2+1]=infix[counter2];
+			}
+			infix[counter1] = '*';
+			ukuran++;
+			counter1++;
+		}
+		if (infix[counter1] == 's' || infix[counter1] == 'c'|| infix[counter1] == 't'|| infix[counter1] == 'p'||infix[counter1] == 'l'){		
+			for(counter2=counter1+3; counter2 <= ukuran; counter2++){
+    			infix[counter2-2]=infix[counter2];
+    			infix[counter2] = '\0';
+			}
+			ukuran++;
+			counter1++;
+		}
+		if (infix[counter1] == '%'){
+			for(counter2=ukuran-1; counter2 >= counter1; counter2--){
+				infix[counter2+3]=infix[counter2];
+			}
+			infix[counter1] = '/';
+			infix[counter1+1] = '1';
+			infix[counter1+2] = infix[counter1+3] = '0';
+			ukuran++;
+			counter1++;
+		}
+		counter1++;
+	}
+
+	int	counter = 0; 
+	while(counter<ukuran){
+		printf("%c", infix[counter]);
+		
+		counter++;
+	}
+}
+
 /* Mengkonversi ekspresi infix menjadi ekspresi postfix.
  * I.S. : Infix terdefinisi.
  * F.S. : Infix berhasil dikonversi menjadi ekspresi postfix.
  */
 void InfixToPostfix(String infix, String postfix){
+	editInfix(infix);
 	int i=0, ukuran, index = 0;
 	char tempChar;
     StackChar temp;
@@ -121,10 +188,10 @@ void InfixToPostfix(String infix, String postfix){
     ukuran = strlen(infix);
     
     //tambahan untuk membenarkan bug
-    int counter1 = 0;
+    int counter1 = 0, counter2;
     while(counter1<ukuran){
     	if(infix[counter1] == '(' && counter1 != 0 && infix[counter1-1] != '+' && infix[counter1-1] != '-' && infix[counter1-1] != '*' && infix[counter1-1] != '/' && infix[counter1-1] != ':' && infix[counter1-1] != '^' && infix[counter1-1] != 'v' ){
-    		for(int counter2=ukuran-1; counter2 >= counter1; counter2--){
+    		for(counter2=ukuran-1; counter2 >= counter1; counter2--){
     			infix[counter2+1]=infix[counter2];
 			}
 			infix[counter1] = '*';
@@ -279,4 +346,44 @@ float CalculationOfTree(BinTree P){
 	else if(strcmp(Info(P),"v")==0){
 		return sqrt(right);
 	}
+}
+
+
+void showInstruction() 
+{
+    FILE *FF; 
+    char CC;  
+
+    if ((FF = fopen("Instruction.txt", "r")) == NULL)
+    {
+        printf("Pembukaan File Gagal !");
+        exit(1); 
+    }
+
+    while ((CC = getc(FF)) != EOF)
+    {              
+        putch(CC); 
+    }
+
+    fclose(FF);
+	printf("\n\n");
+}
+
+void showAbout(){
+	FILE *FF; // penunjuk ke file
+    char CC;  // var penunjuk karakter yang dibaca
+
+    if ((FF = fopen("About.txt", "r")) == NULL)
+    { // Buka file mode baca
+        printf("Pembukaan File Gagal !");
+        exit(1); // keluar program
+    }
+
+    while ((CC = getc(FF)) != EOF)
+    {              // CC akan berisi karakter yg dibaca, akhir teks dengan EOF
+        putch(CC); // baca dan tampilkan ke layar
+    }
+
+    fclose(FF);
+    
 }
