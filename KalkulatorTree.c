@@ -10,24 +10,32 @@
 #include "KalkulatorTree.h"
 
 void MenuKalkulator(){
+	char loop='n';
 	BinTree expTree;
 	String postfix, input;
 	
 	system("cls");
 	showIntruction();
 	system("\nPAUSE");
-	system("cls");
-	puts("\n\t\t\t Aplikasi Kalkulator \n");
-	displayKalkulator();
-	printf("Lakukan perhitungan :\n\n"); 
-	scanf("%s", input);	
-	InfixToPostfix(input, postfix);
-//	printf("\n");
-	expTree = BuildExpressionTree(postfix);
-//	printf("\n\n");
-//	ShowInfoTree(expTree);
-	printf("\n\n");
-	printf("= %.2f\n", CalculationOfTree(expTree)); 
+
+	while (loop=='Y' || loop=='y')
+	{
+		system("cls");
+		puts("\n\t\t\t Aplikasi Kalkulator \n");
+		displayKalkulator();
+		printf("Lakukan perhitungan :\n\n"); 
+		scanf("%s", input);	
+		InfixToPostfix(input, postfix);
+		printf("\n");
+		expTree = BuildExpressionTree(postfix);
+		printf("\n\n");
+		ShowInfoTree(expTree);
+		printf("\n\n");
+		printf("= %.2f\n", CalculationOfTree(expTree));
+
+		printf("\n================\nBuka kalkulator lagi?(y/n)\ninput : ");
+		scanf(" %c", &loop);
+	}
 	
 }
 
