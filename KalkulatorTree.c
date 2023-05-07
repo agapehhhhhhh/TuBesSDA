@@ -10,9 +10,9 @@
 #include "KalkulatorTree.h"
 
 void MenuKalkulator(){
-	char loop='n';
+	char loop='y';
 	BinTree expTree;
-	String postfix, input;
+	String postfix, input, hasil, in;
 	
 	system("cls");
 	showIntruction();
@@ -21,10 +21,11 @@ void MenuKalkulator(){
 	while (loop=='Y' || loop=='y')
 	{
 		system("cls");
-		puts("\n\t\t\t Aplikasi Kalkulator \n");
+		tampilan();
 		displayKalkulator();
 		printf("Lakukan perhitungan :\n\n"); 
 		scanf("%s", input);	
+		strcpy(in, input);
 		InfixToPostfix(input, postfix);
 		printf("\n");
 		expTree = BuildExpressionTree(postfix);
@@ -32,7 +33,9 @@ void MenuKalkulator(){
 		ShowInfoTree(expTree);
 		printf("\n\n");
 		printf("= %.2f\n", CalculationOfTree(expTree));
-
+		String hasil;
+		gcvt(CalculationOfTree(expTree), 50, hasil);
+		writeHistory(in, hasil);
 		printf("\n================\nBuka kalkulator lagi?(y/n)\ninput : ");
 		scanf(" %c", &loop);
 	}
@@ -380,7 +383,7 @@ void showIntruction()
 void showAbout(){
 	FILE *FF; // penunjuk ke file
     char CC;  // var penunjuk karakter yang dibaca
-
+	printf("\n\t\t\tABOUT\n");
     if ((FF = fopen("About.txt", "r")) == NULL)
     { // Buka file mode baca
         printf("Pembukaan File Gagal !");
@@ -391,9 +394,59 @@ void showAbout(){
     {              // CC akan berisi karakter yg dibaca, akhir teks dengan EOF
         putch(CC); // baca dan tampilkan ke layar
     }
-
+	puts("\nPress any key to continue . . .");
+	getchar();
+	getchar();
     fclose(FF);
     
+    
+}
+
+void writeHistory(String operasi, String hasil){
+	FILE *FF;
+    FF = fopen("History.txt", "a");
+    fprintf(FF, "%s = %s\n",operasi, hasil);
+    fclose(FF);
+}
+
+void showHistory(){
+	tampilan();
+    FILE *FF; 
+    char CC;  
+	printf("\n\t\t\tHISTORY\n");
+    if ((FF = fopen("History.txt", "r")) == NULL)
+    {
+        printf("Pembukaan File Gagal !");
+        exit(1); 
+    }
+
+    while ((CC = getc(FF)) != EOF)
+    {              
+        putch(CC); 
+    }
+	puts("\nPress any key to continue . . .");
+	getchar();
+	getchar();
+    fclose(FF);
+    
+}
+
+void tampilan(){
+FILE *FF; 
+    char CC;  
+
+    if ((FF = fopen("Tampilan.txt", "r")) == NULL)
+    {
+        printf("Pembukaan File Gagal !");
+        exit(1); 
+    }
+
+    while ((CC = getc(FF)) != EOF)
+    {              
+        putch(CC); 
+    }
+
+    fclose(FF);
 }
 
 void displayKalkulator(){
